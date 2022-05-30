@@ -7,9 +7,9 @@ package se.yrgo.schedule;
  * assignment (the school where the teacher should teach).
  */
 public class Assignment {
-  private String teacher;
+  private Substitute teacher;
   private String date;
-  private String school;
+  private School school;
 
   /**
    * Creates a new Assignment
@@ -17,34 +17,35 @@ public class Assignment {
    * @param date The date of this Assignment
    * @param school The school of this Assignment
    */
-  public Assignment(String teacher, String date, String school) {
+  public Assignment(Substitute teacher, String date, School school) {
     this.teacher = teacher;
     this.date = date;
     this.school = school;
   }
 
+
   /**
    * Returns this Assignment's teacher's name
    * @return This Assignment's teacher's name
    */
-  public String teacher() {
-    return this.teacher;
+  public Substitute getTeacher() {
+    return teacher;
   }
 
   /**
    * Returns the date of this Assignment
    * @return The date of this Assignment
    */
-  public String date() {
-    return this.date;
+  public String getDate() {
+    return date;
   }
 
   /**
    * Returns this Assignment's school
    * @return This Assignment's school
    */
-  public String school() {
-    return this.school;
+  public School getSchool() {
+    return school;
   }
 
   /**
@@ -53,9 +54,18 @@ public class Assignment {
    */
   @Override
   public String toString() {
-    return new StringBuilder(date)
-      .append(" (").append(teacher).append(")")
-      .append(" at ").append(school)
-      .toString();
+    return "Assignment{" +
+            "teacher=" + this.teacher.getName() +
+            ", date='" + this.date + '\'' +
+            ", school=" + this.school.getSchool_name() + this.school.getAddress() +
+            '}';
   }
+
+  //  @Override
+//  public String toString() {
+//    return new StringBuilder(date)
+//      .append(" (").append(teacher).append(")")
+//      .append(" at ").append(school)
+//      .toString();
+//  }
 }
