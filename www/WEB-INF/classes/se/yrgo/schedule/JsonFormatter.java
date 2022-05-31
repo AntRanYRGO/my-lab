@@ -43,7 +43,7 @@ public class JsonFormatter implements Formatter {
         // Put the key "school_name" in that object and the value from the assignment's school's name
         JSONSchool.put("school_name", assignment.getSchool().getSchool_name());
         // Put the key "address" in that object and the value from the assignment's school's address
-        JSONSchool.put("address", assignment.getSchool().getSchool_name());
+        JSONSchool.put("address", assignment.getSchool().getAddress());
         // Put the JSONSchool in the JSONAssignment object with the key "school"
 
         JSONAssignment.put("school", JSONSchool);
