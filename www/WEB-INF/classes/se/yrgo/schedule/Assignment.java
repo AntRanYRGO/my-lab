@@ -52,20 +52,13 @@ public class Assignment {
    * This Assignment, represented as a String
    * @return This Assignment represented as a String
    */
-  @Override
-  public String toString() {
-    return "Assignment{" +
-            "teacher=" + this.teacher.getName() +
-            ", date='" + this.date + '\'' +
-            ", school=" + this.school.getSchool_name() + this.school.getAddress() +
-            '}';
-  }
 
-  //  @Override
-//  public String toString() {
-//    return new StringBuilder(date)
-//      .append(" (").append(teacher).append(")")
-//      .append(" at ").append(school)
-//      .toString();
-//  }
+    @Override
+  public String toString() {
+    return new StringBuilder(date)
+            .append(" (").append(teacher.getName()).append(")")
+            .append(" at ").append(school.getSchool_name()).append(")")
+            .append(" at ").append(school.getAddress())
+            .toString();
+  }
 }
