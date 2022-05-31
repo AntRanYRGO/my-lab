@@ -20,5 +20,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="winstone" level="project" />
+    <orderEntry type="library" name="org.json" level="project" />
+    <orderEntry type="library" name="sqlite-jdbc (2)" level="project" />
   </component>
 </module>

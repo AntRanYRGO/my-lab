@@ -8,6 +8,7 @@ import java.util.List;
  *
  */
 public class HtmlFormatter implements Formatter {
+  @Override
   public String format(List<Assignment> assignments) {
     StringBuffer html = new StringBuffer("<!DOCTYPE html>\n")
       .append("<html lang=\"en\">\n")
@@ -20,7 +21,7 @@ public class HtmlFormatter implements Formatter {
       html.append("<table border=\"1\">\n <tr>\n  <th>Teacher</th>\n  <th>date</th>\n  <th>school</th>\n </tr>\n");
       for (Assignment assignment : assignments) {
         html.append(" <tr>\n  <td>").append(assignment.getTeacher()).append("</td>\n")
-          .append("  <td>").append(assignment.date()).append("</td>\n")
+          .append("  <td>").append(assignment.getDate()).append("</td>\n")
           .append("  <td>").append(assignment.getSchool()).append("</td>\n </tr>\n");
       }          
       html.append("</table>\n");
