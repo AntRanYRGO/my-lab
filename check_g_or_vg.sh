@@ -48,6 +48,15 @@ $GET "${END_POINT}?format=xml&substitute_id=666" | xmllint - &> /dev/null || fai
 $GET "${END_POINT}?format=xml&substitute_id=666" | xmllint - | egrep '<schedules></schedules>|<schedules/>' &> /dev/null || fail 'Expected <schedules></schedules> without finding it$'
 echo Pass!
 
+echo 'Fetching json for substitute_id=1&day=2018-01-15...'
+$GET "${END_POINT}?format=json&substitute_id=1&day=2018-01-15" | jq '.' &> /dev/null || fail "invalid json for substitute_id=1&day=2018-01-15"
+number_of_assignments=$($GET "${END_POINT}?format=json&substitute_id=1&day=2018-01-15" | jq '.' | grep Yrgo | wc -l)
+if [ $number_of_assignments -ne 1 ]
+then
+    fail "Expected 1 element with Yrgo for subst.id. 1 at 2018-01-15, got:  $number_of_assignments"
+fi
+echo Pass!
+
 echo 'Fetching json for all...'
 $GET "${END_POINT}?format=json" | jq '.' &> /dev/null || fail "invalid json for all"
 echo Pass!
@@ -61,14 +70,6 @@ then
 fi
 echo Pass!
 
-echo 'Fetching json for substitute_id=1&day=2018-01-15...'
-$GET "${END_POINT}?format=json&substitute_id=1&day=2018-01-15" | jq '.' &> /dev/null || fail "invalid json for substitute_id=1&day=2018-01-15"
-number_of_assignments=$($GET "${END_POINT}?format=json&substitute_id=1&day=2018-01-15" | jq '.' | grep Yrgo | wc -l)
-if [ $number_of_assignments -ne 1 ]
-then
-    fail "Expected 1 element with Yrgo for subst.id. 1 at 2018-01-15, got:  $number_of_assignments"
-fi
-echo Pass!
 
 echo 'Fetching json for substitute_id=666...'
 $GET "${END_POINT}?format=json&substitute_id=666" | jq '.' &> /dev/null || fail "invalid json for substitute_id=666"

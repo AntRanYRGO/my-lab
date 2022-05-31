@@ -6,7 +6,7 @@ import org.json.*;
 
 /**
  * A class implementing the Formatter interface. Formats a List of Assignment
- * to HTML.
+ * to JSON.
  */
 public class JsonFormatter implements Formatter {
     @Override
