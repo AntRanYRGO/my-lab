@@ -96,6 +96,7 @@ public class XMLFormatter implements Formatter {
                 StreamResult result = new StreamResult(xml);
                 transformer.transform(source, result);
                 return xml.toString();
+
             } catch (ParserConfigurationException | TransformerException e) {
                 return "XML Error";
             }
